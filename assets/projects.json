@@ -1,0 +1,100 @@
+[
+  {
+    "title": "This Website",
+    "technologyUsed": ["Dart", "Flutter", "HTML/CSS"],
+    "details": "This website is made using the Flutter/Dart framework and programming language. I have made it so that adding or changing a project is as easy as configuring a ‘projects.json’ file. The filter menu will automatically recalculate the ‘technology used’  statistics and resize the menu. To ensure the performance of the filter menu I asynchronously resize the layout when the user is adjusting their screen size, rather than every time the widget builds. The text animation is done by using an AnimationController to iterate through a LinearGradient of Paint colors. View the full source code on github.",
+    "githubLink": "https://github.com/Bluebar1/Portfolio_Website",
+    "readmeLink": "https://raw.githubusercontent.com/Bluebar1/Portfolio_Website/main/README.md",
+    "image": "port.PNG"
+  },
+  {
+    "title": "EndercraftBuild",
+    "technologyUsed": ["Java", "Redis", "SQlite", "Maven"],
+    "details": "EndercraftBuild was a minecraft server and website started in 2012. We created many custom minigames based on video games such as Call of Duty Zombies, Payday2 heists, and Assassins Creed using Java and the Craftbukkit API. Our most popular game was CoD Zombies, amounting over 100,000 unique player statistics in our Redis Database. The source code is private on github but I am willing to let possible employers view it. Below are links to popular youtubers playing our custom minigames.",
+    "githubLink": "https://github.com/Bluebar1/ECB_Sample",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/ECB_Sample/main/README.md",
+    "image": "ecb.png"
+  },
+  {
+    "title": "Face Detection Research",
+    "technologyUsed": ["Python", "OpenCV", "Kivy", "TensorFlow"],
+    "details": "FaceDetection is my Capstone project for my computer science degree. It calculates the accuracy of each algorithm (MTCNN, Haar Cascade, RetinaFace) on a dataset of thousands of photos of masked and unmasked people. Using this data we were able to compare the effectiveness of each algorithm and decipher what made them behave differently. For example, the RetinaFace algorithm focuses on detecting eyes which gave it an advantage over the other algorithms that looked for facial features covered by a mask. The program is written in python and is accessible through command line or a Kivy app. The source code and EXE application download can be found on github.",
+    "githubLink": "https://github.com/Bluebar1/FaceDetection",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/FaceDetection/main/README.md",
+    "image": "face.PNG"
+  },
+  {
+    "title": "32-bit Operating System",
+    "technologyUsed": ["Java", "Assembly"],
+    "details": "Humblebit is a 32-bit assembly language made in java using binary. It contains an arithmetic-logic unit (ALU), assembler, 4-step computer (fetch, decode, execute, and store), and 8192 bits of memory. The assembly language has 9 operators, 9 keywords, and 4 conditionals. Each part of the computer and language have tests written for them as well, view the code on github.",
+    "githubLink": "https://github.com/Bluebar1/HumbleBit",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/HumbleBit/main/README.md",
+    "image": "humblebit.PNG"
+  },
+  {
+    "title": "Mouse Scrolling\nFlutter Package",
+    "technologyUsed": ["Dart", "Flutter"],
+    "details": "More details coming soon...",
+    "githubLink": "https://pub.dev/packages/dyn_mouse_scroll",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/dyn_mouse_scroll/main/README.md",
+    "image": "scrolldemo.PNG"
+  },
+  {
+    "title": "PhotoGem Website and iOS App",
+    "technologyUsed": ["Swift", "XCode", "Rest API", "HTML/CSS", "JavaScript"],
+    "details": "PhotoGem is my uncle’s iOS app that adds many features to Apple's “Photos” app. The app is written in swift and has features such as mapping all your photos GPS data, changing the photos METADATA, and creating custom albums based on this data. I implemented the logic for using the photo’s GPS data to find Wikipedia pages that are near it, usually finding results such as historical landmarks or government buildings. I also made the website for the app using HTML/CSS and javascript with features such as an animated carrossel screenshot viewer, and an accordion style help menu. Currently I am working on implementing the ability to edit captions of photos using Apple’s internal SQLite databases.",
+    "githubLink": "https://github.com/Bluebar1/PhotoGem_Website",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/PhotoGem_Website/main/README.md",
+    "image": "photogem.PNG"
+  },
+  {
+    "title": "Macro keyboard for iOS and Android",
+    "technologyUsed": ["Dart", "Flutter", "Rest API", "Sockets"],
+    "details": "StreamHeck is a Macro Keyboard app and socket server based on Elgato’s “StreamDeck”, allowing me to use a mobile device (iOS or Android) to control my computer. I mainly use it for storing and pasting boilerplate code for the languages I use, but it has many other functionalities such as running any AutoHotKey script, running a command in terminal, opening/closing applications, and changing the volume.",
+    "githubLink": "https://github.com/Bluebar1/StreamHeckApp",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/StreamHeckApp/main/README.md",
+    "image": "codebg.PNG"
+  },
+  {
+    "title": "Event Planning Website",
+    "technologyUsed": ["HTML/CSS", "JavaScript", "Animation"],
+    "details": "This website is a portfolio I made for my cousin's event planning business. It uses HTML/CSS and Javascript for many features such as a dynamic navigation bar, landing page, and fade-in scrolling animations.",
+    "githubLink": "https://github.com/Bluebar1/Event_Planning_Website",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/Event_Planning_Website/main/README.md",
+    "image": "molly.PNG"
+  },
+ 
+  {
+    "title": "WikiMap",
+    "technologyUsed": ["Dart", "Flutter", "Rest API"],
+    "details": "More details coming soon...",
+    "githubLink": "https://github.com/Bluebar1/wikimap2.0",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/wikimap2.0/master/README.md",
+    "image": "wikimapdemo.PNG"
+  },
+  {
+    "title": "Graph Search Algorithms",
+    "technologyUsed": ["Java", "Algorithms"],
+    "details": "More details coming soon...",
+    "githubLink": "https://github.com/Bluebar1/Minimum_Spanning_Trees",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/Minimum_Spanning_Trees/main/README.md",
+    "image": "graphs.PNG"
+  },
+  {
+    "title": "System Resource Usage App",
+    "technologyUsed": ["Python", "Kivy", "Hardware", "Threading"],
+    "details": "More details coming soon...",
+    "githubLink": "https://github.com/Bluebar1/System_Resource_Monitor",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/System_Resource_Monitor/main/README.md",
+    "image": "codebg.PNG"
+  },
+  {
+    "title": "Fitness Demo",
+    "technologyUsed": ["Dart", "Flutter"],
+    "details": "More details coming soon...",
+    "githubLink": "https://github.com/Bluebar1/Fitness_Demo",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/Fitness_Demo/main/README.md",
+    "image": "codebg.PNG"
+  }
+  
+]
