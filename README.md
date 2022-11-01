@@ -1,5 +1,5 @@
 # Portfolio
-My portfolio website made in with Flutter.
+My portfolio website, made with Flutter.
 
 ## Packages used
 * [Provider](https://pub.dev/packages/provider) for state management
@@ -45,18 +45,18 @@ Each page that needs state is wrapped in Provider within its static "builder" me
 the overridden "build" method of StatelessWidget.
 The intro page has an infinite repeating animation so it is required to use a StatefulWidget to access a 
 SingleTickerProviderStateMixin. After the ticker is made it is passed into IntroState and controlled from there.
-The IntroState is created with the global providers to ensure the images are animations are initialized in time.
+The IntroState is created with the global providers to ensure the images and animations are initialized in time.
 
 There are two global state classes.
 * AppState - loads/stores project data, the router object, and notifies the router when it is time to leave the splash screen.
 * Responsive - provides information for making responsive screen layouts.
 
 ## Routing
-For page routing I used go_router. The GoRouter object is created and storeed in the AppState class before
+For page routing I used go_router. The GoRouter object is created and stored in the AppState class before
 the runApp() function is called. AppState uses ChangeNotifierProvider so the router can be accessed from anywhere
 in the app. Every time the app is loaded, a splash page is shown to either load project data via http or local cache.
 Once the data is loaded the user will be redirected to the URL they entered. This is called deep-linking. Without 
-deep linking the app always load the intro page on refresh.
+deep linking the app always loads the intro page on refresh.
 
 Each Route object is neatly organized:
 ```dart
