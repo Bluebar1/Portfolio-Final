@@ -1,115 +1,92 @@
-# portfolio
+# Portfolio
+My portfolio website, made with Flutter.
 
-A new Flutter project.
+## Packages used
+* [Provider](https://pub.dev/packages/provider) for state management
+* [Go Router](https://pub.dev/packages/go_router) for page routing.
+* [Shared Preferences](https://pub.dev/packages/shared_preferences) for storing project data locally.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Page Animations
+Each page uses a static "builder" function to be accessed by the GoRouter. Here is MySplashPage's builder function:
+```dart
+static Page<void> builder(BuildContext context, GoRouterState state) =>
+      CustomTransitionPage<void>(
+          transitionDuration: Duration(milliseconds: 500),
+          maintainState: true,
+          key: state.pageKey,
+          child: LayoutBuilder(builder: (context, constraints) {
+            context.read<Responsive>().screenSize = constraints;
+            return const MySplashPage();
+          }),
+          transitionsBuilder: (context, animation, _, child) {
+            return ListenableProvider.value(
+                builder: (context, _) => child, value: animation);
+          });
+```
 
-A few resources to get you started if this is your first Flutter project:
+Each page than can now access the animation by using:
+```dart
+final animation = context.read<Animation<double>>();
+```
+All animation objects are created in the page's state class. Many of them use custom compound animations to combine
+up to three animation types (Opacity, Position, Scale). Here is an example of creating a compound animation:
+```dart
+picAnimation = Utils.compoundAnimation(
+        begin: const FadePositionScale(FadePosition(0, Offset(30, 30)), .9),
+        end: const FadePositionScale(FadePosition(1, Offset(0, 0)), 1.0),
+        curve: Interval(.5, .7));
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## State management
+I still use Provider for state management because that is what was popular when I started in Flutter, but I am
+willing to learn other tools. 
+Each page that needs state is wrapped in Provider within its static "builder" method so that it can be accessed in
+the overridden "build" method of StatelessWidget.
+The intro page has an infinite repeating animation so it is required to use a StatefulWidget to access a 
+SingleTickerProviderStateMixin. After the ticker is made it is passed into IntroState and controlled from there.
+The IntroState is created with the global providers to ensure the images and animations are initialized in time.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+There are two global state classes.
+* AppState - loads/stores project data, the router object, and notifies the router when it is time to leave the splash screen.
+* Responsive - provides information for making responsive screen layouts.
 
-class ScrollDemoPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     final animation = Provider.of<Animation<double>>(context, listen: false);
-//     final size = MediaQuery.of(context).size;
-//     final sdp = context.read<ScrollDemoProvider>();
+## Routing
+For page routing I used go_router. The GoRouter object is created and stored in the AppState class before
+the runApp() function is called. AppState uses ChangeNotifierProvider so the router can be accessed from anywhere
+in the app. Every time the app is loaded, a splash page is shown to either load project data via http or local cache.
+Once the data is loaded the user will be redirected to the URL they entered. This is called deep-linking. Without 
+deep linking the app always loads the intro page on refresh.
 
-//     sdp.initScreenSize(size);
-//     return Scaffold(
-//         backgroundColor: Colors.transparent,
-//         body: ScrollDemo(controller: animation, size: size)
-//         // ReadmeDisplay(),
+Each Route object is neatly organized:
+```dart
+GoRoute(
+  name: homeRouteName,
+  path: '/home',
+  pageBuilder: IntroPage.builder,
+),
+```
 
-//         );
-//   }
-// }
+## Cache loading
+The github README files for each project are loaded via http when the user loads the app for the first time.
+After the data is fetched it is stored locally using the Shared Preferences package. The next time the user 
+loads the app, the project data will be accessed via cache for much faster loading times.
 
-// class ScrollDemo extends StatelessWidget {
-//   ScrollDemo({Key? key, required this.controller, required this.size})
-//       : bg_top = Tween<double>(
-//           begin: size.height / 2,
-//           end: size.height - 70,
-//         ).animate(
-//           CurvedAnimation(
-//             parent: controller,
-//             curve: const Interval(
-//               0.5,
-//               1.0,
-//               curve: Curves.ease,
-//             ),
-//           ),
-//         ),
-//         bg_box_width = Tween<double>(
-//           begin: 0,
-//           end: size.width,
-//         ).animate(
-//           CurvedAnimation(
-//             parent: controller,
-//             curve: const Interval(
-//               0.0,
-//               .5,
-//               curve: Curves.ease,
-//             ),
-//           ),
-//         ),
-//         opacity = Tween<double>(
-//           begin: 0,
-//           end: 1,
-//         ).animate(
-//           CurvedAnimation(
-//             parent: controller,
-//             curve: const Interval(
-//               .7,
-//               1.0,
-//               curve: Curves.ease,
-//             ),
-//           ),
-//         ),
-//         super(key: key);
+Each pages file structure is organized in 3 distinct layers: Presentation (widgets/state), Domain (data manipulation),
+and Data (data fetching). Because of this, my code for loading projects data looks like:
+```dart
+static Future<ProjectsDataModel> init() async {
+  // Load & transform Projects from json asset file
+  final _jsonString = await ProjectsData.loadProjectsJson();
+  final _projects = ProjectsDomain.createProjects(_jsonString);
+  final _quantityMap = ProjectsDomain.createQuantityMap(_projects);
+  final _allTechUsed = ProjectsDomain.loadTechUsedLabels(_quantityMap);
+  // load project descriptions
+  await ProjectsData.loadReadmeTexts(_projects);
+  // add descriptions to Project objects
 
-//   final Animation<double> controller;
-//   final Animation<double> opacity;
-//   final Animation<double> bg_top;
-//   final Animation<double> bg_box_width;
+  return ProjectsDataModel(_projects, _quantityMap, _allTechUsed);
+}
+```
 
-//   final Size size;
-//   @override
-//   Widget build(BuildContext context) {
-//     return AnimatedBuilder(builder: _buildAnimation, animation: controller);
-//   }
 
-//   Widget _buildAnimation(BuildContext context, Widget? child) {
-//     return Stack(
-//       children: [
-//         Positioned(
-//             width: bg_box_width.value,
-//             height: size.height / 2 + 1,
-//             right: 0,
-//             child: Container(color: BACKGROUND_ACCENT2)),
-//         Positioned(
-//             width: bg_box_width.value,
-//             top: size.height - bg_top.value,
-//             height: size.height,
-//             child: Container(
-//               color: BACKGROUND_ACCENT,
-//             )),
-//         Positioned(
-//           top: size.height - bg_top.value + 20,
-//           width: size.width,
-//           child: Opacity(
-//             opacity: opacity.value,
-//             child: Center(child: ScrollGraphs()),
-//           ),
-//         )
-//       ],
-//     );
-//   }
-// }
