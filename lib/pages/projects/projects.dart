@@ -20,8 +20,6 @@ class Projects extends StatelessWidget {
           lazy: false,
           create: (context) => ProjectsState(context),
           child: LayoutBuilder(builder: (context, constraints) {
-            print(DateTime.now().millisecondsSinceEpoch);
-            print('layout building');
             context.read<Responsive>().screenSize = constraints;
             context.read<ProjectsState>().setGridPadding(constraints);
             // final pageState = context.read<ProjectsState>();
@@ -40,7 +38,6 @@ class Projects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('projects rebuilding');
     final pageData = context.read<ProjectsState>();
 
     final _children = [
@@ -93,7 +90,6 @@ class ProjectsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('PROJECTS GRID REBUILDING');
     context.select((ProjectsState p) => p.filterIndex);
     final padding = context.select((ProjectsState p) => p.gridPadding);
     final projects = context.read<ProjectsState>().filteredProjects;

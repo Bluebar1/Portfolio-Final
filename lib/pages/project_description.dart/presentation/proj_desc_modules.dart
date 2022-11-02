@@ -48,33 +48,44 @@ class AnimatedOpacityImageOverlay extends StatelessWidget {
       {super.key, required this.project, required this.height});
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Container(
-          height: height,
-          color: PRIMARY
-              .withOpacity(context.select((ProjDescState p) => p.opacity))),
-      Container(
-          height: height,
-          child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                  height: 130,
-                  decoration: BoxDecoration(
-                      gradient: ProjDescThemeData.projDescImageCoverGradient),
-                  child: ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 800),
-                      child: Center(
-                          child: Align(
-                              alignment: Alignment.bottomLeft,
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(project.title!,
-                                        style: kStatusTextStyle),
-                                    TechUsedGrid(project)
-                                  ])))))))
-    ]);
+    return Container(
+        height: height,
+        child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+                height: 130,
+                decoration: BoxDecoration(
+                    gradient: ProjDescThemeData.projDescImageCoverGradient),
+                child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: kMaxForegroundWidth),
+                    child: Center(
+                        child: Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Flexible(
+                                        child: FittedBox(
+                                          fit: BoxFit.fitWidth,
+                                          child: Text(project.title!,
+                                              style: kStatusTextStyle),
+                                        ),
+                                      ),
+                                      IconButton(
+                                          padding: EdgeInsets.all(10),
+                                          color: SECONDARY_LIGHTER,
+                                          iconSize: 40,
+                                          icon: Icon(MyIcons.github),
+                                          tooltip: 'View on Github',
+                                          onPressed: () => Utils.openLink(
+                                              project.githubLink!))
+                                    ],
+                                  ),
+                                  TechUsedGrid(project),
+                                ])))))));
   }
 }
 

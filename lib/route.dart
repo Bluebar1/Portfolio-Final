@@ -82,16 +82,20 @@ class MyRouter {
       final loadingData = state.subloc == loadingLoc;
 
       /// On first load always redirect user to loading screen
-      if (!hasData && !loadingData) return loadingLoc;
+
+      if (!hasData && !loadingData) {
+        return loadingLoc;
+      }
 
       /// Then send them to the route they provided.
       if (hasData && loadingData) return dataState.initialRoute;
 
       // Ensure IntroPage only shows SplashFadeAway once.
       if (state.subloc != '/home' &&
-          state.subloc != '/loading' &&
-          state.subloc != '/' &&
-          !state.subloc.contains('details')) {
+              state.subloc != '/loading' &&
+              state.subloc != '/'
+          // && !state.subloc.contains('details')
+          ) {
         dataState.isFirstLoad = false;
       }
 

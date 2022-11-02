@@ -93,7 +93,8 @@ class PortraitImage extends StatelessWidget {
         Container(
           height: 390,
           width: 280,
-          child: intro.portrait,
+          child: ClipRRect(
+              borderRadius: BorderRadius.circular(12), child: intro.portrait),
         )
       ]),
     );

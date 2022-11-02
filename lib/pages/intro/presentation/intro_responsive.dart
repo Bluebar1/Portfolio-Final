@@ -43,7 +43,7 @@ class IntroTablet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: kForegroundMaxWidth),
+      constraints: BoxConstraints(maxWidth: kMaxForegroundWidth),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         FittedBox(fit: BoxFit.fitWidth, child: IntroNavigation()),
         kPaddingWidgetLarge,

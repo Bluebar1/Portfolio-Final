@@ -12,7 +12,7 @@ import 'intro_buttons.dart';
 class IntroShaderListener extends StatelessWidget {
   late Animation<double> controller;
 
-  final double width = kForegroundMaxWidth;
+  final double width = kMaxForegroundWidth;
   List<Color>? colors;
   late Animation<double> _colorShifter;
 

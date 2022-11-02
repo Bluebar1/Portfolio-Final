@@ -57,11 +57,6 @@ class ProjectsState with ChangeNotifier {
 
     await Utils.sleepMS(10);
     _gridPadding = _horizontal.roundToDouble();
-    // if ((_gridPadding - oldPadding).abs() > 10) {
-    //   notifyListeners();
-    // }
-    // oldPadding = _gridPadding;
-    print('grid padding: $_gridPadding');
 
     notifyListeners();
   }

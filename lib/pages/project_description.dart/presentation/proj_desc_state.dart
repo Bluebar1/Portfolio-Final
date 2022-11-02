@@ -11,8 +11,6 @@ class ProjDescState with ChangeNotifier {
   final AppState appState;
 
   ProjDescState(BuildContext context, this.appState) {
-    print('NEW PROJ DESC STATE');
-    // appState = context.read<AppState>();
     controller.addListener(_listener);
     load(appState.selectedProject);
     _initAnimations(context);
@@ -20,8 +18,6 @@ class ProjDescState with ChangeNotifier {
   }
   Project project = Project.empty();
 
-  // int index = 0;
-  // get project => _project;
   load(Project value) async {
     project = value;
 

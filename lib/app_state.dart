@@ -71,10 +71,10 @@ class AppState extends ChangeNotifier {
     final currentTime = DateTime.now().millisecondsSinceEpoch;
     final elapsedTime = currentTime - startTime;
 
-    if (elapsedTime > 1000)
+    if (elapsedTime > 2000)
       hasData = true;
     else {
-      await Utils.sleepMS(1000 - elapsedTime);
+      await Utils.sleepMS(2000 - elapsedTime);
       hasData = true;
     }
   }

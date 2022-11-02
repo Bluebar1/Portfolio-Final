@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 const githubLink = 'https://github.com/Bluebar1';
-const linkedInLink = 'https://www.linkedin.com/in/nick-b-a71b23249/';
-const mailtoLink = 'mailto:nickblaauboer7@gmail.com';
+const linkedInLink =
+    'https://www.linkedin.com/in/nicholas-blaauboer-a71b23249/';
+const mailtoLink = 'mailto:$email.com';
 const email = 'nickblaauboer7@gmail.com';
 const projectDescKey = 'projectDescriptionsKey';
 
@@ -36,8 +37,6 @@ const LargeTextSize = 26.0;
 const MediumTextSize = 20.0;
 const BodyTextSize = 16.5;
 const SmallTextSize = 14.0;
-
-const kForegroundMaxWidth = 900.0;
 
 const String FontDefaultName = 'Montserrat';
 const String OtherFontName = 'Sarpanch';

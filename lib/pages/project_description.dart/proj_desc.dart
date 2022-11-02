@@ -5,9 +5,9 @@ import 'package:portfolio/pages/projects/domain/project_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../app_state.dart';
+import '../../constants/proj_desc_constants.dart';
 import '../../responsive.dart';
 import '../projects/presentation/project_tile.dart';
-import '../../constants/proj_desc_constants.dart';
 import 'presentation/proj_desc_modules.dart';
 import 'presentation/proj_desc_state.dart';
 
@@ -52,7 +52,7 @@ class ProjDesc extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 800),
+                  constraints: BoxConstraints(maxWidth: kMaxForegroundWidth),
                   child: Hero(
                     tag: project.title.toString(),
                     child: ProjectGridTile(

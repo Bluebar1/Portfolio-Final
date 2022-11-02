@@ -3,8 +3,8 @@
     "title": "This Website",
     "technologyUsed": ["Dart", "Flutter", "HTML/CSS"],
     "details": "This website is made using the Flutter/Dart framework and programming language. I have made it so that adding or changing a project is as easy as configuring a ‘projects.json’ file. The filter menu will automatically recalculate the ‘technology used’  statistics and resize the menu. To ensure the performance of the filter menu I asynchronously resize the layout when the user is adjusting their screen size, rather than every time the widget builds. The text animation is done by using an AnimationController to iterate through a LinearGradient of Paint colors. View the full source code on github.",
-    "githubLink": "https://github.com/Bluebar1/Portfolio_Website",
-    "readmeLink": "https://raw.githubusercontent.com/Bluebar1/Portfolio_Website/main/README.md",
+    "githubLink": "https://github.com/Bluebar1/Portfolio-Final",
+    "readmeLink": "https://raw.githubusercontent.com/Bluebar1/Portfolio-Final/main/README.md",
     "image": "port.PNG"
   },
   {
@@ -48,6 +48,14 @@
     "image": "photogem.PNG"
   },
   {
+    "title": "Graph Search Algorithms",
+    "technologyUsed": ["Java", "Algorithms"],
+    "details": "More details coming soon...",
+    "githubLink": "https://github.com/Bluebar1/Minimum_Spanning_Trees",
+    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/Minimum_Spanning_Trees/main/README.md",
+    "image": "graphs.PNG"
+  },
+  {
     "title": "Macro keyboard for iOS and Android",
     "technologyUsed": ["Dart", "Flutter", "Rest API", "Sockets"],
     "details": "StreamHeck is a Macro Keyboard app and socket server based on Elgato’s “StreamDeck”, allowing me to use a mobile device (iOS or Android) to control my computer. I mainly use it for storing and pasting boilerplate code for the languages I use, but it has many other functionalities such as running any AutoHotKey script, running a command in terminal, opening/closing applications, and changing the volume.",
@@ -73,28 +81,11 @@
     "image": "wikimapdemo.PNG"
   },
   {
-    "title": "Graph Search Algorithms",
-    "technologyUsed": ["Java", "Algorithms"],
-    "details": "More details coming soon...",
-    "githubLink": "https://github.com/Bluebar1/Minimum_Spanning_Trees",
-    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/Minimum_Spanning_Trees/main/README.md",
-    "image": "graphs.PNG"
-  },
-  {
     "title": "System Resource Usage App",
     "technologyUsed": ["Python", "Kivy", "Hardware", "Threading"],
     "details": "More details coming soon...",
     "githubLink": "https://github.com/Bluebar1/System_Resource_Monitor",
     "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/System_Resource_Monitor/main/README.md",
     "image": "codebg.PNG"
-  },
-  {
-    "title": "Fitness Demo",
-    "technologyUsed": ["Dart", "Flutter"],
-    "details": "More details coming soon...",
-    "githubLink": "https://github.com/Bluebar1/Fitness_Demo",
-    "readmeLink" : "https://raw.githubusercontent.com/Bluebar1/Fitness_Demo/main/README.md",
-    "image": "codebg.PNG"
   }
-  
 ]
